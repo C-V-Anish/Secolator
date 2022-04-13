@@ -7,10 +7,23 @@ def index(request):
 
 
 def Result(request):
-    djtext = request.GET.get('abc', 'default')
-    c: int=0
-    for char in djtext:
-        c=c+1
-    params = {'purpose': 'Character Count', 'analysed_text': c}
-    return render(request,'Result.html',params)
-
+    djtext= request.GET.get('a', 'default')
+    djtext1= request.GET.get('ab', 'default')
+    c = request.GET.get('abc', 'default')
+    try:
+        a=int(djtext)
+        b=int(djtext1)
+        if(c=="+"):
+            return HttpResponse(a+b)
+        elif(c=="-"):
+            return HttpResponse(a-b)
+        elif (c == "*"):
+            return HttpResponse(a*b)
+        elif (c == "/"):
+            return HttpResponse(a/b)
+        elif (c == "%"):
+            return HttpResponse(a%b)
+        elif (c == "^"):
+            return HttpResponse(a**b)
+    except:
+        return HttpResponse('Inappropriate datatype...Please enter numbers')
