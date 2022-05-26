@@ -31,7 +31,7 @@ def Result(request):
         elif (c == "^"):
             x = {'Purpose': 'Power', 'Result': a ** b}
             return render(request, 'Result.html', x)
-        else :
+        else:
             return HttpResponse("Enter appropriate operator")
     except:
         return HttpResponse('Inappropriate datatype....Please enter carefully')
